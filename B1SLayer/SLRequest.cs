@@ -81,13 +81,13 @@ public class SLRequest
 
             if (inlineCountElement is not null)
             {
-                switch (inlineCountElement1.ValueKind)
+                switch (inlineCountElement.Value.ValueKind)
                 {
                     case JsonValueKind.Number:
-                        inlineCount = inlineCountElement1.GetInt32();
+                        inlineCount = inlineCountElement.Value.GetInt32();
                         break;
                     case JsonValueKind.String:
-                        inlineCount = int.TryParse(inlineCountElement1.GetString(), out var inlineCountElement1Result) ? inlineCountElement1Result : 0;
+                        inlineCount = int.TryParse(inlineCountElement.Value.GetString(), out var inlineCountElementIntValue) ? inlineCountElementIntValue : 0;
                         break;
                     default:
                         throw new Exception("Inline count is not a number or string");
